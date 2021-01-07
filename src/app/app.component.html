@@ -1,0 +1,124 @@
+<!-- Header -->
+
+<nav class="navbar navbar-dark bg-danger">
+    <span class="navbar-brand text-white" id="nav">Course & Students Maintenance</span
+  >
+</nav>
+
+<!-- Couse Section -->
+
+<div class="container mt-5" id="course">
+  <div class="row">
+    <div class="col-md mt-3">
+      <p class="h3">Courses</p>
+    </div>
+    <div class="col-md">
+      <form #courseForm="ngForm">
+        <div class="dropdown show">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Courses
+          </a>
+
+          <div class="dropdown-menu">
+            <a class="dropdown-item" *ngFor="let course of Course">{{
+              course.addCourse
+            }}</a>
+          </div>
+        </div>
+        <button class="btn btn-primary mt-2" (click)="openCourse()">
+          Add Courses
+        </button>
+
+        <input
+          class="form-control mt-2"
+          name="addCourse"
+          #name="ngModel"
+          [(ngModel)]="CourseVal"
+          *ngIf="addCoursevalue"
+          type="text"
+          placeholder="Enter Course name"
+        />
+
+        <i
+          class="fa fa-check"
+          (click)="addCourse(courseForm)"
+          *ngIf="addCoursevalue"
+          aria-hidden="true"
+        ></i>
+
+        <i
+          class="fa fa-times ml-2"
+          (click)="closeCourse(courseForm)"
+          *ngIf="addCoursevalue"
+          aria-hidden="true"
+        ></i>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Student Section -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md mt-3">
+      <p class="h3">Students</p>
+    </div>
+    <div class="col-md">
+      <form #studentForm="ngForm">
+        <div class="dropdown show">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            role="button"
+            id="dropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Students
+          </a>
+
+          <div class="dropdown-menu">
+            <a class="dropdown-item" *ngFor="let student of Student">{{
+              student.addStudent
+            }}</a>
+          </div>
+        </div>
+        <button class="btn btn-primary mt-2" (click)="openStudent()">
+          Add Students
+        </button>
+
+        <input
+          class="form-control mt-2"
+          name="addStudent"
+          #name="ngModel"
+          [(ngModel)]="StudentVal"
+          *ngIf="addStudentvalue"
+          type="text"
+          placeholder="Enter student name"
+        />
+
+        <i
+          class="fa fa-check"
+          (click)="addStudent(studentForm)"
+          *ngIf="addStudentvalue"
+          aria-hidden="true"
+        ></i>
+
+        <i
+          class="fa fa-times ml-2"
+          (click)="closeStudent(studentForm)"
+          *ngIf="addStudentvalue"
+          aria-hidden="true"
+        ></i>
+      </form>
+    </div>
+  </div>
+</div>
